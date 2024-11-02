@@ -9,15 +9,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- AOS CSS 추가 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Swiper CSS 추가 -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@latest/swiper-bundle.min.css">
+
     <style>
         /* 슬라이드 이미지 크기 조정 */
         .carousel-inner img {
-            height: 750px; /* 원하는 높이로 설정 */
+            height: 800px; /* 원하는 높이로 설정 */
             object-fit: cover; /* 이미지가 비율을 유지하면서 크기에 맞게 조정됩니다 */
         }
         @media (max-width: 768px) {
             .carousel-inner img {
-                height: 650px; /* 모바일에서 슬라이드 이미지 높이를 줄여 가독성 개선 */
+                height: 700px; /* 모바일에서 슬라이드 이미지 높이를 줄여 가독성 개선 */
             }
         }
 
@@ -62,7 +65,7 @@
         .model-section-title {
             font-size: 2rem;
             font-weight: bold;
-            text-align: center;
+            text-align: left;
             margin-bottom: 2rem;
         }
 
@@ -90,8 +93,56 @@
             }
         }
         .navbar-nav .dropdown-toggle::after {
-        display: none; /* 화살표 제거 */
+            display: none; /* 화살표 제거 */
         }
+
+        .car-poster {
+            overflow: hidden;
+            border-radius: 10px; /* 모서리를 둥글게 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* 부드러운 그림자 */
+            transition: transform 0.3s ease; /* 호버 시 확대 효과 */
+        }
+
+        .car-poster:hover {
+            transform: scale(1.05); /* 마우스 오버 시 살짝 확대 */
+        }
+
+        .swiper-container {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 100%;
+            max-width: 1200px; /* 컨테이너 너비 제한 */
+        }
+        
+        /* 네비게이션 버튼 비활성화 스타일 */
+        .swiper-button-disabled {
+            opacity: 0.3;
+            pointer-events: none; /* 클릭 불가 */
+        }
+
+        /* 파란색 기본 화살표 스타일 제거 */
+        .swiper-button-next::after, .swiper-button-prev::after {
+            content: none; /* Swiper 기본 화살표 제거 */
+        }
+        
+        .py-6 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        .car-poster-img {
+            width: 100%;
+            height: 400px; /* 높이를 원하는 크기로 조정 */
+            object-fit: cover;
+        }
+        /* 슬라이드에 마우스를 올렸을 때 손바닥 모양으로 변경 */
+        .swiper-slide {
+            cursor: pointer;
+        }
+
+       
+
+
     </style>
 </head>
 <body>
@@ -157,9 +208,9 @@
     </div>
 
     <!-- 인기 모델 순위 섹션 -->
-    <div class="py-5 bg-white">
+    <div class="py-6 bg-white">
         <div class="container">
-            <h2 class="model-section-title">인기 모델 순위</h2>
+            <h2 class="model-section-title">10월 인기 모델 순위</h2>
             <div class="row">
                 <!-- 1위 모델 -->
                 <div class="col-md-6 main-model" data-aos="fade-up">
@@ -193,8 +244,291 @@
         </div>
     </div>
 
+    <!-- 출시 예정 차 카드 슬라이드 섹션 -->
+    <div class="py-6">
+        <div class="container" style="max-width: 1140px; overflow: hidden;"> <!-- 최대 너비와 오버플로우 숨기기 -->
+            <!-- 제목이 좌측에 위치 -->
+            <h2 class="model-section-title">출시 예정 차</h2>
+            <!-- Swiper 슬라이더 -->
+            <div class="swiper-container-1" style="overflow: hidden;"> <!-- 슬라이더 영역을 넘지 않도록 제한 -->
+                <div class="swiper-wrapper">
+                    <!-- 각 카드 -->
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model1.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model2.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model3.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model4.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model5.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model2.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                </div>
+                <!-- Swiper 네비게이션 버튼 -->
+                <div class="swiper-button-next-1"></div>
+                <div class="swiper-button-prev-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 현대 자동차 카드 슬라이드 섹션 -->
+    <div class="py-6">
+        <div class="container" style="max-width: 1140px; overflow: hidden;"> <!-- 최대 너비와 오버플로우 숨기기 -->
+            <!-- 제목이 좌측에 위치 -->
+            <h2 class="model-section-title">현대 자동차</h2>
+            <!-- Swiper 슬라이더 -->
+            <div class="swiper-container-1" style="overflow: hidden;"> <!-- 슬라이더 영역을 넘지 않도록 제한 -->
+                <div class="swiper-wrapper">
+                    <!-- 각 카드 -->
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model1.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model2.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model3.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model4.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model5.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model2.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                </div>
+                <!-- Swiper 네비게이션 버튼 -->
+                <div class="swiper-button-next-1"></div>
+                <div class="swiper-button-prev-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 기아 자동차 카드 슬라이드 섹션 -->
+    <div class="py-6">
+        <div class="container" style="max-width: 1140px; overflow: hidden;"> <!-- 최대 너비와 오버플로우 숨기기 -->
+            <!-- 제목이 좌측에 위치 -->
+            <h2 class="model-section-title">기아 자동차</h2>
+            <!-- Swiper 슬라이더 -->
+            <div class="swiper-container-1" style="overflow: hidden;"> <!-- 슬라이더 영역을 넘지 않도록 제한 -->
+                <div class="swiper-wrapper">
+                    <!-- 각 카드 -->
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model1.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model2.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model3.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model4.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model5.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model2.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                </div>
+                <!-- Swiper 네비게이션 버튼 -->
+                <div class="swiper-button-next-1"></div>
+                <div class="swiper-button-prev-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 벤츠 자동차 카드 슬라이드 섹션 -->
+    <div class="py-6">
+        <div class="container" style="max-width: 1140px; overflow: hidden;"> <!-- 최대 너비와 오버플로우 숨기기 -->
+            <!-- 제목이 좌측에 위치 -->
+            <h2 class="model-section-title">벤츠 자동차</h2>
+            <!-- Swiper 슬라이더 -->
+            <div class="swiper-container-1" style="overflow: hidden;"> <!-- 슬라이더 영역을 넘지 않도록 제한 -->
+                <div class="swiper-wrapper">
+                    <!-- 각 카드 -->
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model1.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model2.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model3.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model4.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model5.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model2.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                </div>
+                <!-- Swiper 네비게이션 버튼 -->
+                <div class="swiper-button-next-1"></div>
+                <div class="swiper-button-prev-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BMW 자동차 카드 슬라이드 섹션 -->
+    <div class="py-6">
+        <div class="container" style="max-width: 1140px; overflow: hidden;"> <!-- 최대 너비와 오버플로우 숨기기 -->
+            <!-- 제목이 좌측에 위치 -->
+            <h2 class="model-section-title">BMW 자동차</h2>
+            <!-- Swiper 슬라이더 -->
+            <div class="swiper-container-1" style="overflow: hidden;"> <!-- 슬라이더 영역을 넘지 않도록 제한 -->
+                <div class="swiper-wrapper">
+                    <!-- 각 카드 -->
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model1.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model2.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model3.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model4.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model5.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model2.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                </div>
+                <!-- Swiper 네비게이션 버튼 -->
+                <div class="swiper-button-next-1"></div>
+                <div class="swiper-button-prev-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 테슬라 자동차 카드 슬라이드 섹션 -->
+    <div class="py-6">
+        <div class="container" style="max-width: 1140px; overflow: hidden;"> <!-- 최대 너비와 오버플로우 숨기기 -->
+            <!-- 제목이 좌측에 위치 -->
+            <h2 class="model-section-title">테슬라 자동차</h2>
+            <!-- Swiper 슬라이더 -->
+            <div class="swiper-container-1" style="overflow: hidden;"> <!-- 슬라이더 영역을 넘지 않도록 제한 -->
+                <div class="swiper-wrapper">
+                    <!-- 각 카드 -->
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model1.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model2.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model3.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model4.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model5.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="car-poster">
+                            <img src="model2.jpg" class="car-poster-img" alt="Car Image">
+                        </div>
+                    </div>
+                </div>
+                <!-- Swiper 네비게이션 버튼 -->
+                <div class="swiper-button-next-1"></div>
+                <div class="swiper-button-prev-1"></div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- 브랜드 철학 섹션 -->
-    <div class="py-5 bg-light-blue">
+    <div class="py-6 bg-light-blue">
         <div class="container">
             <h2 class="text-center mb-5">Motor Buy의 브랜드 철학</h2>
             <div class="row">
@@ -232,7 +566,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- AOS JavaScript 추가 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Swiper JavaScript 추가 -->
+    <script src="https://unpkg.com/swiper@latest/swiper-bundle.min.js"></script>
     <script>
+
         AOS.init({
         duration: 1000, // 애니메이션 지속 시간 (밀리초)
         once: true // 스크롤 시 애니메이션이 한 번만 발생하도록 설정
@@ -266,6 +603,61 @@
                 }
             });
         });
+
+        // 출시 예정 차 Swiper 초기화
+        var swiper1 = new Swiper('.swiper-container-1', {
+            slidesPerView: 4, // 처음에 보여줄 카드 개수
+            slidesPerGroup: 1, // 슬라이드할 때마다 한 개씩 이동
+            spaceBetween: 20, // 카드 사이의 간격
+            loop: false, // 끝에서 루프되지 않도록 설정
+            centeredSlides: false, // 카드가 중앙에 오지 않도록 설정
+            navigation: {
+                nextEl: '.swiper-button-next-1',
+                prevEl: '.swiper-button-prev-1',
+                disabledClass: 'swiper-button-disabled', // 버튼 비활성화 클래스
+            },
+            autoplay: {
+                delay: 1000, // 1초 후에 자동으로 슬라이드
+                disableOnInteraction: true, // 사용자가 스와이프 하면 자동 슬라이드 멈춤
+            },
+            on: {
+                // 슬라이드가 변경될 때마다 호출
+                slideChange: function () {
+                    const swiperInstance = this;
+                    const prevButton = document.querySelector('.swiper-button-prev-1');
+                    const nextButton = document.querySelector('.swiper-button-next-1');
+                    
+                    // 첫 번째 슬라이드에 도달했을 때 이전 버튼 비활성화
+                    if (swiperInstance.isBeginning) {
+                        prevButton.classList.add('swiper-button-disabled');
+                    } else {
+                        prevButton.classList.remove('swiper-button-disabled');
+                    }
+
+                    // 마지막 슬라이드에 도달했을 때 다음 버튼 비활성화
+                    if (swiperInstance.isEnd) {
+                        nextButton.classList.add('swiper-button-disabled');
+                    } else {
+                        nextButton.classList.remove('swiper-button-disabled');
+                    }
+                },
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 2, // 모바일에서 보이는 카드 개수 조정
+                    spaceBetween: 15,
+                    slidesPerGroup: 1, // 모바일에서도 한 장씩 슬라이드
+                },
+                768: {
+                    slidesPerView: 4, // 데스크탑에서 보이는 카드 개수
+                    spaceBetween: 15,
+                    slidesPerGroup: 1, // 한 번에 한 장씩 이동
+                }
+            }
+        });
+
+        
+
     </script>
 </body>
 </html>
